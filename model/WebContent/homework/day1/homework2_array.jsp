@@ -14,7 +14,7 @@
 	}
 	function funcAdd(){
 		//배열에 추가하고 배열을 div에 출력
-		
+		var 
 	}
 	function funcDelete(){
 		//배열에서 삭제하고 배열을 div에 출력
