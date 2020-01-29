@@ -7,10 +7,10 @@
 	window.addEventListener("load",function(){
 		//버튼 클릭 이벤트 지정
 		//입력날짜와 오늘 날짜까지의 일수 계산하여 div에 출력 "남은 일수는 00일입니다."
-		//반올름해서 출력 할 것
+		//반올림해서 출력 할 것
 		
-		//날짜 연산 가능함 
-		var a = new Date() - new Date(2020,0,10);
+		//날짜 연산 가능함 _ms단위의 long integer타입값으로 결과 산출됨
+		var a = new Date() - new Date(2020,0,10); 
 		console.log(a / 1000 / 60 / 60 /24 );  
 	})
 </script>
