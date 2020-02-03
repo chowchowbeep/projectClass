@@ -83,7 +83,7 @@ public class BoardDAO extends DAO { // DAO상속받음
 				dto.setPoster(rs.getString("poster"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setContents(rs.getString("contents"));
-				dto.setLastpost(rs.getDate("lastpost"));
+				//dto.setLastpost(rs.getDate("lastpost"));
 				dto.setViews(rs.getInt("views"));
 			}
 		} catch(Exception e) {
@@ -115,7 +115,7 @@ public class BoardDAO extends DAO { // DAO상속받음
 				dto.setPoster(rs.getString("poster"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setContents(rs.getString("contents"));
-				dto.setLastpost(rs.getDate("lastpost"));
+				//dto.setLastpost(rs.getDate("lastpost"));
 				dto.setViews(rs.getInt("views"));
 				list.add(dto);
 			}
