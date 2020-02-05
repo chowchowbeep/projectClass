@@ -13,11 +13,11 @@ public class BoardDAO extends DAO { // DAO상속받음
 			String sql = "insert into board"
 					+ " (no, poster, subject, contents, lastpost, views)"
 					+ " values ((select max(no)+1 from board), ?,?,?, sysdate, 1)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getPoster());
-			pstmt.setString(2, dto.getSubject());
-			pstmt.setString(3, dto.getContents());
-			r = pstmt.executeUpdate();	
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getPoster());
+			psmt.setString(2, dto.getSubject());
+			psmt.setString(3, dto.getContents());
+			r = psmt.executeUpdate();	
 					
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -35,11 +35,11 @@ public class BoardDAO extends DAO { // DAO상속받음
 		try {
 			String sql = "update board set subject=?, contents=?"
 					+ " where no = ?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getSubject());
-			pstmt.setString(2, dto.getContents());
-			pstmt.setInt(3, dto.getNo());
-			r = pstmt.executeUpdate();	
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getSubject());
+			psmt.setString(2, dto.getContents());
+			psmt.setInt(3, dto.getNo());
+			r = psmt.executeUpdate();	
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -55,9 +55,9 @@ public class BoardDAO extends DAO { // DAO상속받음
 		int r = 0;
 		try {
 			String sql = "delete from board where no=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getNo());
-			r = pstmt.executeUpdate();	
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, dto.getNo());
+			r = psmt.executeUpdate();	
 					
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -75,15 +75,15 @@ public class BoardDAO extends DAO { // DAO상속받음
 		BoardDTO dto = new BoardDTO();
 		try {
 			String sql = "select * from board where no=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, no);
-			rs = pstmt.executeQuery();
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, no);
+			rs = psmt.executeQuery();
 			if(rs.next()) { //단건 조회기 때문에 if로
 				dto.setNo(rs.getInt("no"));
 				dto.setPoster(rs.getString("poster"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setContents(rs.getString("contents"));
-				dto.setLastpost(rs.getDate("lastpost"));
+				//dto.setLastpost(rs.getDate("lastpost"));
 				dto.setViews(rs.getInt("views"));
 			}
 		} catch(Exception e) {
@@ -105,8 +105,8 @@ public class BoardDAO extends DAO { // DAO상속받음
 		try {
 		// 2.쿼리실행
 			String sql = "select * from board order by no desc";
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery(sql);
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery(sql);
 			
 		// 3.결과저장
 			while(rs.next()) {
@@ -115,7 +115,7 @@ public class BoardDAO extends DAO { // DAO상속받음
 				dto.setPoster(rs.getString("poster"));
 				dto.setSubject(rs.getString("subject"));
 				dto.setContents(rs.getString("contents"));
-				dto.setLastpost(rs.getDate("lastpost"));
+				//dto.setLastpost(rs.getDate("lastpost"));
 				dto.setViews(rs.getInt("views"));
 				list.add(dto);
 			}

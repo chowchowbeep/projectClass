@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img id="imgSample" src="../images/imgg.jpg" style="width:100px">
+<img id="imgSample" src="../images/img.jpg" style="width:100px">
 <button type="button" id = "btnSize">그림크게</button>
 <script>
 

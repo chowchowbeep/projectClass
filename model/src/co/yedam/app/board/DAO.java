@@ -20,15 +20,15 @@ import javax.sql.DataSource;
  *
  */
 public class DAO {
-	Connection conn;
-	PreparedStatement pstmt;
-	ResultSet rs;
-	DataSource ds; //커넥션풀 사용을 위한 데이터연결 생성객체
+	protected Connection conn;
+	protected PreparedStatement psmt;
+	protected ResultSet rs;
+	protected DataSource ds; //커넥션풀 사용을 위한 데이터연결 생성객체
 
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String user = "cbt";
-	private String password = "cbt";
+	private String user = "hr";
+	private String password = "hr";
 
 	public DAO() {
 		try {
@@ -59,8 +59,8 @@ public class DAO {
 			if (rs != null) {
 				rs.close();
 			}
-			if (pstmt != null) {
-				pstmt.close();
+			if (psmt != null) {
+				psmt.close();
 			}
 			if (conn != null) {
 				conn.close();
