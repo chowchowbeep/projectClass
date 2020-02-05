@@ -20,7 +20,7 @@
 
 	<filter-mapping>
 		<filter-name>sitemesh</filter-name>
-		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.do</url-pattern><!-- *.do로 들어오면 사이트매시 적용되도록 -->
 	</filter-mapping>
 
 </web-app>

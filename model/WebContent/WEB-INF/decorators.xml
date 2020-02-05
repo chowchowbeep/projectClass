@@ -10,4 +10,9 @@
         <pattern>/admin/*.do</pattern>  컨트롤러에서 /admin/*.do로 요청되면 해당 레이아웃 적용
     </decorator> 
     -->
+    <excludes> <!-- ajax로 들어왔을때는 사이트매시 적용되지 않도록 -->
+    	<pattern>/ajax/*</pattern>
+    	<pattern>/popup/*</pattern>
+    </excludes>
+    
 </decorators>

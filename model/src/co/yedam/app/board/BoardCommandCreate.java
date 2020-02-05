@@ -11,7 +11,7 @@ import co.yedam.app.common.Command;
 public class BoardCommandCreate implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
+	public String excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//파라미터
 		BoardDTO dto = new BoardDTO();

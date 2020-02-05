@@ -14,7 +14,7 @@ import net.sf.json.JSONObject;
 public class AjaxBoardOne implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
+	public String excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		//no파라미터 받기

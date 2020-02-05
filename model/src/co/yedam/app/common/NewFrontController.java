@@ -10,10 +10,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import apitest.apiTestCommand;
 import co.yedam.app.board.BoardCommandCreateForm;
 import co.yedam.app.board.BoardCommandSelectList;
 import co.yedam.app.boardAjax.AjaxBoardList;
 import co.yedam.app.boardAjax.AjaxBoardOne;
+import co.yedam.app.users.command.DeleteUsers;
+import co.yedam.app.users.command.GetUsers;
+import co.yedam.app.users.command.GetUsersList;
+import co.yedam.app.users.command.InsertUsers;
+import co.yedam.app.users.command.ManageUsers;
+import co.yedam.app.users.command.UpdateUsers;
 
 @WebServlet("*.do")
 //localhost/model1/ ///.do
@@ -47,15 +54,26 @@ public class NewFrontController extends HttpServlet {
 
 		// member
 
-		
-		
 		// ajax 컨트롤러는 별도로 생성할 것을 권장함
-		
+
 		// ajax list
 		cont.put("/ajaxBoardList.do", new AjaxBoardList());
-		
+
 		// ajax 단건
 		cont.put("/ajaxBoardOne.do", new AjaxBoardOne());
+
+		// 댓글 관리
+
+		// 사용자 관리
+		cont.put("/ManageUsers.do", new ManageUsers()); // 사용자 관리페이지
+		cont.put("/ajax/InsertUsers.do", new InsertUsers());// 사용자등록 ajax
+		cont.put("/ajax/UpdateUsers.do", new UpdateUsers());// 사용자수정 ajax
+		cont.put("/ajax/DeleteUsers.do", new DeleteUsers());// 사용자삭제 ajax
+		cont.put("/ajax/GetUsers.do", new GetUsers());// 사용자조회 ajax
+		cont.put("/ajax/GetUsersList.do", new GetUsersList());// 사용자전체조회 ajax
+		
+		cont.put("/ajax/apiTestCommand.do", new apiTestCommand());
+		
 
 	}
 
@@ -73,14 +91,14 @@ public class NewFrontController extends HttpServlet {
 		System.out.println("path=" + path);
 
 		// 권한체크(로그인체크)
-		
+
 		Command commandImpl = cont.get(path); // 실행클래스를 선택
 		String page = null;
 		response.setContentType("text/html; charset=UTF-8");
 
 		// url 체크 후 페이지 넘기기
 		if (commandImpl != null) {
-			page = commandImpl.execute(request, response);
+			page = commandImpl.excute(request, response);
 			if (page != null && !page.isEmpty()) {
 				if (page.startsWith("redirect:")) { // 넘기는 방식이 redirect일 경우
 					String view = page.substring(9); // redirect이후에 진짜로 넘길 페이지의 문자

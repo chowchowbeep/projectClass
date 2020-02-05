@@ -16,7 +16,7 @@ public class BoardCommandSelectList implements Command {
 
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
+	public String excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BoardDAO dao = new BoardDAO();
 		List<BoardDTO> list = dao.selectList();

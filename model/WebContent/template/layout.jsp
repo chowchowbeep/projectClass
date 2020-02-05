@@ -109,6 +109,7 @@ body {
 	}
 }
 </style>
+<decorator:head /><!-- 넘어온 내용중 head에 해당하는 부분을 여기에 담아서 클라이언트에게 응답할 것임-->
 </head>
 <body>
 
@@ -125,7 +126,8 @@ body {
 	<div class="row">
 		<div class="leftcolumn">
 			<div class="card">
-				<decorator:body />
+				<h3><decorator:title/></h3>
+				<decorator:body /><!-- 사이트매시 사용을 위해서 -->
 				<!-- 뷰페이지 위치 -->
 			</div>
 

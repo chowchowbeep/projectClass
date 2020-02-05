@@ -15,7 +15,7 @@ import net.sf.json.JSONArray;
 public class AjaxBoardList implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response)
+	public String excute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		BoardDAO dao = new BoardDAO();
 		List<BoardDTO> list = dao.selectList();
