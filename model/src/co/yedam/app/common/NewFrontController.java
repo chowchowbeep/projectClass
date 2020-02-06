@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import apitest.apiTestCommand;
 import co.yedam.app.board.BoardCommandCreateForm;
 import co.yedam.app.board.BoardCommandSelectList;
+import co.yedam.app.board.Fileupload;
 import co.yedam.app.boardAjax.AjaxBoardList;
 import co.yedam.app.boardAjax.AjaxBoardOne;
 import co.yedam.app.users.command.DeleteUsers;
@@ -73,6 +74,12 @@ public class NewFrontController extends HttpServlet {
 		cont.put("/ajax/GetUsersList.do", new GetUsersList());// 사용자전체조회 ajax
 		
 		cont.put("/ajax/apiTestCommand.do", new apiTestCommand());
+		
+		
+		
+		//파일업로드
+		cont.put("/Fileupload.do", new Fileupload());
+		
 		
 
 	}
