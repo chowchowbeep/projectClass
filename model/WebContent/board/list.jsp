@@ -3,7 +3,6 @@
 <%@page import="co.yedam.app.board.BoardDAO"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.sql.*"  %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <html> 
 <head> <title>게시판</title> </head>
