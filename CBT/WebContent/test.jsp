@@ -208,7 +208,7 @@
                         <div style="display: inline-block; width: 20px; height: 20px;" class="markNum">
                             5.
                         </div>
-                        &nbsp;
+                        &nbsp; &nbsp;
                         <div class="mark">
                             <label><input type="radio" value="1" name="markQ5" id="markQ5A1">1&nbsp;</label>
                             <label><input type="radio" value="2" name="markQ5" id="markQ5A2">2&nbsp;</label>
