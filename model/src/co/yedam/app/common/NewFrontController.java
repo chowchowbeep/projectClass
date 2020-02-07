@@ -17,6 +17,7 @@ import co.yedam.app.board.Fileupload;
 import co.yedam.app.boardAjax.AjaxBoardList;
 import co.yedam.app.boardAjax.AjaxBoardOne;
 import co.yedam.app.users.command.DeleteUsers;
+import co.yedam.app.users.command.GetDeptCnt;
 import co.yedam.app.users.command.GetUsers;
 import co.yedam.app.users.command.GetUsersList;
 import co.yedam.app.users.command.InsertUsers;
@@ -54,6 +55,10 @@ public class NewFrontController extends HttpServlet {
 		cont.put("/boardCreateForm.do", new BoardCommandCreateForm());
 
 		// member
+		
+		
+		
+		
 
 		// ajax 컨트롤러는 별도로 생성할 것을 권장함
 
@@ -62,6 +67,10 @@ public class NewFrontController extends HttpServlet {
 
 		// ajax 단건
 		cont.put("/ajaxBoardOne.do", new AjaxBoardOne());
+		
+		
+		
+		
 
 		// 댓글 관리
 
@@ -79,6 +88,12 @@ public class NewFrontController extends HttpServlet {
 		
 		//파일업로드
 		cont.put("/Fileupload.do", new Fileupload());
+		
+		
+		
+		// 부서원 수 JSON
+		cont.put("/ajax/GetDeptCnt.do", new GetDeptCnt());
+		
 		
 		
 
