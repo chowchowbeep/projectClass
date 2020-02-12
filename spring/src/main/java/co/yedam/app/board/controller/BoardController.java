@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.yedam.app.board.BoardDTO;
-import co.yedam.app.service.BoardService;
+import co.yedam.app.board.service.impl.BoardService;
 
 @Controller
 public class BoardController {
@@ -33,7 +33,7 @@ public class BoardController {
 	//등록폼
 	@RequestMapping("/boardInsertForm")
 	public String boardInsertForm() {
-		return "board/boardInsertForm";
+		return "board/boardInsertForm"; //servelt-context.xml에서 prefix, suffix가 설정되어 있으므로 경로지정과 확장자 입력 x
 	}
 }
 

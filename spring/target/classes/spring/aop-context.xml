@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+		
+<bean id="log" class="co.yedam.app.common.LogAdvice"/>
+<bean id="log4j" class="co.yedam.app.common.Log4jAdvice"/> <!-- bean가져옴 -->
+<aop:config>
+	<aop:pointcut 
+	expression="execution(* co.yedam.app..service.impl.*Service.*(..) )" id="allpointcut" /> 
+	<!--*은 모든 리턴타입			패키지 ..은 생략을 의미	  
+	Service로 끝나는 클래스		*모든 메소드	(..)은 모든 인수타입 -->
+	<aop:aspect ref="log">
+		<aop:before method="logPrinting" pointcut-ref="allpointcut"/> 
+		<!-- 가져온 bean으로 로그처리 id가 log인 빈을 참조. 
+		해당 클래스에서 logPrinting메소드를 호출함으로서, 
+		pointcut의 exececution before_이전_에 로그처리를 합니다. -->
+	</aop:aspect>
+	<aop:aspect ref="log4j">
+		<aop:after method="print" pointcut-ref="allpointcut"/>
+	</aop:aspect>
+</aop:config>
+</beans>
