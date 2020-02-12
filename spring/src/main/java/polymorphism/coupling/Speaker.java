@@ -1,10 +1,6 @@
 package polymorphism.coupling;
 
-public interface TV {
-
-	void powerOn();
-
-	void powerOff();
+public interface Speaker {
 
 	void volumeUp();
 

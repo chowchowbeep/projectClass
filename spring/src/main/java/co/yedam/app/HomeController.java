@@ -4,8 +4,6 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import javax.xml.ws.RequestWrapper;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -36,12 +34,6 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
-	} //execute 메소드와 동일
-	
-	@RequestMapping("/boardList")//context path 뒤에 /boardList붙이면 다음을 리턴
-	public String  boardList() {
-		return "board/boardList"; //view아래 board아래 boardList
 	}
-	
-	
+
 }

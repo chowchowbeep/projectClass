@@ -4,10 +4,13 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-
-<!--  <bean id="tv" class="polymorphism.coupling.SamsungTV"> </bean> class내 패키지.클래스명  -->
-
-<context:component-scan base-package="polymorphism"/><!-- 하위패키지까지 검색하고, 어노테이션있을 경우  -->
+<!-- <bean id="sp" class="polymorphism.coupling.AppleSpeaker"/>	
+<bean id="stv" class="polymorphism.coupling.SamsungTV">
+	<constructor-arg ref="speaker"/>
+	<property name="speaker" ref="sp"></property>
+</bean> -->
+<bean ></bean>
+<context:component-scan base-package="polymorphism"/>
 <context:component-scan base-package="co.yedam.app"/>
-<!-- namespaces기능 이용하여context 가져오기 -->
+
 </beans>

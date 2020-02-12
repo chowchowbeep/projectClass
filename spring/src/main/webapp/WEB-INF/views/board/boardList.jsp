@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-test controller
+<h3>게시글목록</h3>
+${list}
 </body>
 </html>

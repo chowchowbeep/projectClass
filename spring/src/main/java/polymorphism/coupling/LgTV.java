@@ -2,7 +2,7 @@ package polymorphism.coupling;
 
 import org.springframework.stereotype.Component;
 
-@Component("tv")
+@Component("ltv")
 public class LgTV implements TV{
 
 	public void powerOn() {

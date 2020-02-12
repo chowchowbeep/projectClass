@@ -22,7 +22,5 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="co.yedam.app" />
-	
-	
-	
+
 </beans:beans>

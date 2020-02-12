@@ -8,6 +8,6 @@ public class TvUser {
 		tv.soundUp();
 		tv.soundDown();
 		tv.powerOff();
-//소스 수정없이 tv 클래스 교체해보기
+
 	}
 }

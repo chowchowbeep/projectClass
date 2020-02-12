@@ -1,10 +1,11 @@
 package polymorphism.coupling;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-//@Component("tv")
+@Component("stv")
 public class SamsungTV implements TV {
-
+	@Autowired Speaker speaker;
 	public void powerOn() {
 		System.out.println("SamsungTV powerOn");
 	}
@@ -12,9 +13,9 @@ public class SamsungTV implements TV {
 		System.out.println("SamsungTV powerDown");
 	}
 	public void volumeUp() {
-		System.out.println("SamsungTV volumeUp");
+		speaker.volumeUp();
 	}
 	public void volumeDown() {
-		System.out.println("SamsungTV volumeDown");
+		speaker.volumeDown();
 	}	
 }

@@ -8,8 +8,8 @@ public class TvUserContainer {
 	public static void main(String[] args) {
 
 		AbstractApplicationContext  factory =
-				new GenericXmlApplicationContext("applicationContext.xml"); //applicationContext.xml
-		TV tv = (TV)factory.getBean("tv");
+				new GenericXmlApplicationContext("applicationContext.xml");
+		TV tv = (TV)factory.getBean("tv"); //DI(Dependency Injection) 의존성 주입
 		
 		tv.powerOn();
 		tv.volumeUp();
