@@ -17,10 +17,15 @@ public class BoardController {
 	//목록조회
 	@RequestMapping("/boardList")
 	public String boardList(HttpServletRequest request, BoardDTO dto) {		
+		
 		//DAO 목록 조회
 		List<BoardDTO> list = boardService.selectList(dto);
 		//request 속성 추가
 		request.setAttribute("list", list);
+		
+		//BoardDTO는 담지 않아도 리퀘스트객체에 실려감
+		
+		
 		//뷰페이지 포워드
 		return "board/boardList";
 	}	

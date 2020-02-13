@@ -1,6 +1,7 @@
 package co.yedam.app.board;
 
 import java.sql.Timestamp;
+import java.util.Arrays;
 
 public class BoardDTO {
 	private int no;
@@ -11,10 +12,22 @@ public class BoardDTO {
 	private int views;
 	private byte[] file;
 	private String image;
+	
+	
+	//원래는 페이지관련 DTO로 분리해야 함
 	private int page;
 	private int start;
 	private int end;
+	private int lastPage;
 	
+	public int getLastPage() {
+		return lastPage;
+	}
+
+	public void setLastPage(int lastPage) {
+		this.lastPage = lastPage;
+	}
+
 	public int getPage() {
 		return page;
 	}
@@ -94,9 +107,12 @@ public class BoardDTO {
 	public void setViews(int views) {
 		this.views = views;
 	}
+
 	@Override
 	public String toString() {
 		return "BoardDTO [no=" + no + ", poster=" + poster + ", subject=" + subject + ", contents=" + contents
-				+ ", lastpost=" + lastpost + ", views=" + views + "]";
+				+ ", lastpost=" + lastpost + ", views=" + views + ", file=" + Arrays.toString(file) + ", image=" + image
+				+ ", page=" + page + ", start=" + start + ", end=" + end + ", lastPage=" + lastPage + "]";
 	}
+
 }

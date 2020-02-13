@@ -21,6 +21,7 @@
 			<button>검색</button>
 		</form>
 	</div>
+	
 	<c:forEach items="${list}" var="board">
 		<div>
 			<span>${board.no }</span> 
@@ -29,8 +30,13 @@
 		</div>
 	</c:forEach>
 	
+	
+	
+	=======================<br>
+	${boardDTO} <!--  --><br>
+	=======================<br>
 	<div>
-		<c:forEach begin="1" end="3" var="i">
+		<c:forEach begin="1" end="${boardDTO.lastPage}" var="i">
 			<a href="#" onclick="goPage(${i})">${i}</a>
 		</c:forEach>
 	

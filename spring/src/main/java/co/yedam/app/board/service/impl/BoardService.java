@@ -24,12 +24,21 @@ public class BoardService {
 		// log.logPrinting();
 
 		// 페이징 처리
-		int p = dto.getPage();
-		int pageunit = 3;
+		int p = dto.getPage();//p=내가 클릭한 페이지
+		int pageunit = 3;//한 페이지에 표시하고 싶은 컨텐츠 갯수
 		int start = (p - 1) * pageunit + 1;
 		int end = start + pageunit - 1;
 		dto.setStart(start);
 		dto.setEnd(end);
+		
+		//전체 페이지수
+		int totalRecord = dao.boardCount(dto);
+		int lastPage = totalRecord / pageunit
+						+ ((totalRecord % pageunit > 0) ? 1:0); 
+		dto.setLastPage(lastPage);
+		
+		
+		
 		return dao.boardList(dto);
 
 	}
