@@ -16,9 +16,9 @@ public class BoardController {
 	@Autowired BoardService boardService;	
 	//목록조회
 	@RequestMapping("/boardList")
-	public String boardList(HttpServletRequest request) {		
+	public String boardList(HttpServletRequest request, BoardDTO dto) {		
 		//DAO 목록 조회
-		List<BoardDTO> list = boardService.selectList();
+		List<BoardDTO> list = boardService.selectList(dto);
 		//request 속성 추가
 		request.setAttribute("list", list);
 		//뷰페이지 포워드

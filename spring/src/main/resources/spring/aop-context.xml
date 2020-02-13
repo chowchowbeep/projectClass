@@ -6,7 +6,10 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 		
 <bean id="log" class="co.yedam.app.common.LogAdvice"/>
-<bean id="log4j" class="co.yedam.app.common.Log4jAdvice"/> <!-- bean가져옴 -->
+<bean id="log4j" class="co.yedam.app.common.Log4jAdvice"/> 
+<!--  bean가져옴 //advice class 
+횡단 관심에 해당하는 공통기능의 코드. 
+독립된 클래스의 메소드로 작성 -->
 <aop:config>
 	<aop:pointcut 
 	expression="execution(* co.yedam.app..service.impl.*Service.*(..) )" id="allpointcut" /> 
@@ -16,10 +19,11 @@
 		<aop:before method="logPrinting" pointcut-ref="allpointcut"/> 
 		<!-- 가져온 bean으로 로그처리 id가 log인 빈을 참조. 
 		해당 클래스에서 logPrinting메소드를 호출함으로서, 
-		pointcut의 exececution before_이전_에 로그처리를 합니다. -->
+		pointcut의 exececution before(동작시점을 지정)_에 로그처리를 합니다. -->
 	</aop:aspect>
 	<aop:aspect ref="log4j">
 		<aop:after method="print" pointcut-ref="allpointcut"/>
 	</aop:aspect>
+
 </aop:config>
 </beans>

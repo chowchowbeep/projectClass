@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDAO"> 
+<!-- namespace가 같으면 다른 매퍼 파일에서 id값이 중복된 것이 있어도 무관함.
+namespace 와 id가 결합되어 사용되기 때문에. -->
+
+	<select id="boardList" resultType="board" 
+		parameterType="board">
+	<!--resultType은 sql-map-config에서 설정한 alias
+	parameterType은 생략가능  -->
+	select * from ( select rownum rn, a.* from ( <!-- 페이징 처리를 위한 부분 -->
+		SELECT * 
+			FROM BOARD 
+			<where>
+				<if test="poster != null and poster != '' ">
+					poster = #{poster} 
+				</if>
+				
+				<if test="subject != null and subject != '' ">
+					and subject like '%' || #{subject} || '%'
+				</if>
+			</where>
+			ORDER BY NO DESC
+	) a ) b where rn between #{start} and #{end} <!-- 페이징 처리를 위한 부분 -->
+	</select>
+	<insert id="insertBoard">
+		insert into board (
+							no,
+							poster,
+							subject,
+							contents,
+							lastpost,
+							views ) 
+		values ( 		  (select nvl(max(no),0)+1 from board), 
+							#{poster},<!-- boardDTO에서의 필드명을 파라미터값으로  -->
+							#{subject},
+							#{contents},
+							sysdate, 
+							1 )
+	
+	
+	</insert>
+</mapper>

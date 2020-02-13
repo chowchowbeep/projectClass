@@ -11,6 +11,34 @@ public class BoardDTO {
 	private int views;
 	private byte[] file;
 	private String image;
+	private int page;
+	private int start;
+	private int end;
+	
+	public int getPage() {
+		return page;
+	}
+
+	public int getStart() {
+		return start;
+	}
+
+	public int getEnd() {
+		return end;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
 	
 	public String getImage() {
 		return image;

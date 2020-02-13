@@ -10,7 +10,6 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import co.yedam.app.board.BoardDTO;

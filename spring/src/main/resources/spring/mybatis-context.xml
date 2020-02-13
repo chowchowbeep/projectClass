@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<!-- SqlSession setup for MyBatis Database Layer Spring과 Mybatis 연동 설정 -->
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:sql-map-config-spring.xml" />
+		<property name="mapperLocations"
+			value="classpath:/mappings/*.xml" /><!-- 모든sql구문이 모임 -->
+	</bean>
+	
+	<!-- SqlSessionTemplate -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"></constructor-arg>
+	</bean>
+	
+	<!-- MapperConfigurer setup for MyBatis Database Layer with @MapperScan("boardMapper") 
+		in BoardMapper Interface_ @MapperScan은 인터페이스만으로 DAO클래스를 생성해줌 
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.springbook.biz" />
+	</bean> -->
+	
+</beans>
