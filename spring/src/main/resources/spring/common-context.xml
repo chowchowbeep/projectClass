@@ -17,7 +17,7 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean><!-- servlet-context.xml의 내용 가져와요.  -->
 
-	<!-- @RequestMapping 등을 스캔.. -->
+	<!-- @RequestMapping, @ResponseBody_ ajax관련어노테이션 등을 스캔.. -->
 	<mvc:annotation-driven />
 	
 	

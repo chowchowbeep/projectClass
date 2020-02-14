@@ -53,13 +53,26 @@
 		contents,
 		lastpost,
 		views )
-		values ( (select nvl(max(no),0)+1 from board),
+		values ( 
+		(select nvl(max(no),0)+1 from board),
 		#{poster},<!-- boardDTO에서의 필드명을 파라미터값으로 -->
 		#{subject},
 		#{contents},
 		sysdate,
 		1 )
-
-
 	</insert>
+	
+	<select id="boardOne" resultType="board" parameterType="int">
+		select *
+		from board
+		<where>
+		no = #{value}<!-- boardDTO의 필드값이 아니라 int라면 파라미터명을 필드값이 아닌 value로!! -->
+		</where>
+	</select>
+	
+	
+
+	
+	
+	
 </mapper>

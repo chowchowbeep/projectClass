@@ -29,4 +29,11 @@ public class boardDAOMybatis {
 		System.out.println("BoradDAOMybatis insertBoard() ");
 		return session.insert("BoardDAO.insertBoard",dto);
 	}
+	
+	public BoardDTO boardOne(int no) {
+		System.out.println("BoradDAOMybatis boardOne() ");
+		return session.selectOne("BoardDAO.boardOne",no);
+	}
+	
+	
 }

@@ -3,6 +3,8 @@ package co.yedam.app.board;
 import java.sql.Timestamp;
 import java.util.Arrays;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class BoardDTO {
 	private int no;
 	private String poster;
@@ -10,15 +12,15 @@ public class BoardDTO {
 	private String contents;
 	private Timestamp lastpost;
 	private int views;
-	private byte[] file;
-	private String image;
+	@JsonIgnore private byte[] file;
+	@JsonIgnore private String image;
 	
 	
 	//원래는 페이지관련 DTO로 분리해야 함
-	private int page;
-	private int start;
-	private int end;
-	private int lastPage;
+	@JsonIgnore private int page;
+	@JsonIgnore private int start;
+	@JsonIgnore private int end;
+	@JsonIgnore private int lastPage;
 	
 	public int getLastPage() {
 		return lastPage;

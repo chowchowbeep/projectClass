@@ -22,7 +22,9 @@ public class BoardService {
 
 		// 로그기록
 		// log.logPrinting();
-
+		if(dto.getPage() == 0 ) {
+			dto.setPage(1);
+		}
 		// 페이징 처리
 		int p = dto.getPage();//p=내가 클릭한 페이지
 		int pageunit = 3;//한 페이지에 표시하고 싶은 컨텐츠 갯수
@@ -47,7 +49,22 @@ public class BoardService {
 	public int insert(BoardDTO dto) {
 		// 로그기록
 		// log.logPrinting();
-
-		return dao.insert(dto);
+		
+		
+		//트랜잭션처리 실습.//BoardMapper.xml에서 no를 직접입력하게 하여 무결성제약조건 위반하게 만든 뒤.
+	
+		//dao.insert(dto); //인서트 후 자동 커밋
+		int r = dao.insert(dto);//error발생 => 롤백되어야 함. 
+		
+		//transaction-context.xml에서 transationAOP설정이후에는 둘다 롤백 되어야 함
+		//->autocommit false
+		
+		return r; 
+	}
+	
+	
+	public BoardDTO boardOne(int no) {
+		BoardDTO dto = dao.boardOne(no);
+		return dto;
 	}
 }
