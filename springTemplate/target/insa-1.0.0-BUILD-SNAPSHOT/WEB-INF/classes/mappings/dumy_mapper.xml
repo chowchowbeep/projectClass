@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- dumy_mapper.xml -->
+<mapper namespace="DumyDAO">
+	<select id="getTime" resultType="map"><!-- 컬럼이름이 key, 값이value로 map.put -->
+		select sysdate "date" from dual
+	</select>
+</mapper>

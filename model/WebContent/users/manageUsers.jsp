@@ -80,7 +80,7 @@ div {
 						<br>
 						<button class="btn btn-warning">등록</button>
 						<a href="#" class="btn btn-danger">목록</a>
-						<button class="btn btn-info">취소</button>
+						<button class="btn btn-secondary">취소</button>
 					</div>
 				</form>
 			</div>
@@ -90,11 +90,11 @@ div {
 
 				<!-- 접히는 동작을 제어할 부분 -->
 				<!-- data-toggle은 css만으로 이용불가. 동적인 처리를 위해서는 js, jquery의 cdn도 복사해오세요 -->
-				<a class="btn btn-primary" data-toggle="collapse" href="#userinfo"
+				<a class="btn btn-secondary" data-toggle="collapse" href="#usersecondary"
 					role="button" aria-expanded="false" aria-controls="collapseExample">
 					도움말</a>
 				<!-- 접히는 부분 -->
-				<div class="collapse" id="userinfo">회원관리 상세 도움말</div>
+				<div class="collapse" id="usersecondary">회원관리 상세 도움말</div>
 
 
 

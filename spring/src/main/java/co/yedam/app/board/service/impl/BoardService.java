@@ -67,4 +67,6 @@ public class BoardService {
 		BoardDTO dto = dao.boardOne(no);
 		return dto;
 	}
+	
+	
 }

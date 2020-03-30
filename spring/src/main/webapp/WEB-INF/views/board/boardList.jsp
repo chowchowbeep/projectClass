@@ -10,6 +10,7 @@
 </head>
 <body>
 	<h3>게시글목록</h3>
+	<a href="boardInsertForm">게시글쓰기</a>
 	<div class="searchDiv">
 		<form action="boardList" name="searchFrm">
 			<!-- 현재페이지 요청시 action생략가능 -->
@@ -27,6 +28,13 @@
 			<span>${board.no }</span> 
 			<span>${board.poster }</span> 
 			<span>${board.subject}</span>
+			<span>${board.uploadfilename}</span>
+			<span><a href="filedown?atchFileId=${board.uploadfilename}">
+			<img src="${board.uploadfilename}"></a>	<!-- blob을 불러옴 -->
+			</span> 
+			<img src="getByteImage.do?no=${board.no }"/>
+			
+			
 		</div>
 	</c:forEach>
 	

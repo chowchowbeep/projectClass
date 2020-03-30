@@ -200,9 +200,9 @@
 				</select>
 		</div>  
 		<div class="btn-group">      
-				<input type="button"  class="btn btn-primary" value="등록"  id="btnInsert" /> 
-				<input type="button"  class="btn btn-primary" value="수정"  id="btnUpdate" />
-				<input type="button"  class="btn btn-primary" value="초기화" id="btnInit" />
+				<input type="button"  class="btn btn-secondary" value="등록"  id="btnInsert" /> 
+				<input type="button"  class="btn btn-secondary" value="수정"  id="btnUpdate" />
+				<input type="button"  class="btn btn-secondary" value="초기화" id="btnInit" />
 		</div>
 	</form>
 </div>		
